@@ -1,0 +1,24 @@
+{
+  "name": "hono",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "NODE_ENV=prod node dist/index.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.56.0",
+    "boxen": "^8.0.1",
+    "dayjs": "^1.11.13",
+    "dotenv": "^17.2.1",
+    "hono": "^4.9.4",
+    "nanoid": "^5.1.5",
+    "uuid": "^11.1.0",
+    "zod": "^4.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "chalk": "^5.6.0",
+    "tsx": "^4.7.1",
+    "typescript": "^5.8.3"
+  }
+}
