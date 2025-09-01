@@ -8,6 +8,7 @@ const hook = new Hono();
 hook.post("/user-updated", async (c) => {
 	const authorization_header = c.req.header("authorization");
 
+	console.log(authorization_header, DB_SECRET);
 	if (authorization_header !== DB_SECRET) {
 		console.log("Unauthorized request to auth webhook");
 		return c.json({ error: "Unauthorized" }, 401);
