@@ -27,5 +27,3 @@ hook.post("/user-updated", async (c) => {
 });
 
 export const auth_webhook = hook;
-
-// api.builtsearch.com
