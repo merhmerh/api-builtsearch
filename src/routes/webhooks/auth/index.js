@@ -1,15 +1,14 @@
 import { Hono } from "hono";
 import { grantProductOnSignUpCode } from "../../common/activate_signup_code.js";
 import { activeBuiltFormsMembers } from "../../common/active_builtforms_members.js";
+import { env } from "hono/adapter";
 
-const DB_SECRET = process.env.SUPABASE_SECRET_KEY;
 const hook = new Hono();
 
 hook.post("/user-updated", async (c) => {
 	const authorization_header = c.req.header("authorization");
-
-	console.log(authorization_header, DB_SECRET);
-	if (authorization_header !== DB_SECRET) {
+	const { SUPABASE_SECRET_KEY } = env(c);
+	if (authorization_header !== SUPABASE_SECRET_KEY) {
 		console.log("Unauthorized request to auth webhook");
 		return c.json({ error: "Unauthorized" }, 401);
 	}

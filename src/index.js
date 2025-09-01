@@ -1,3 +1,4 @@
+import "dotenv/config";
 import { Hono } from "hono";
 import route from "./routes.js";
 import { cors } from "hono/cors";
